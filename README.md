@@ -1,8 +1,17 @@
 # MultiLoader Template
 
 This project provides a Gradle project template that can compile mods for both Forge and Fabric using a common
-sourceset. This project does not require any third party libraries or dependencies. If you have any questions or want to
-discuss the project join our [Discord](https://discord.myceliummod.network).
+sourceset, set up to use the Fabric API and its Forge port to minimize the amount of platform-dependant mod code.
+This allows you to use Fabric API on both platforms with full api compatibility.
+If you have any questions or want to discuss the project, feel free to create a post
+on [GitHub Discussions](https://github.com/Sinytra/MultiLoader-Template/discussions).
+
+This template is based on Jared's [MultiLoader Template](https://github.com/jaredlll08/MultiLoader-Template).
+
+### Dependencies
+
+Mods created using this template require the [Forgified Fabric API](https://github.com/Sinytra/ForgifiedFabricAPI).
+Alternatively, mod authors may choose to ship select API modules as part of their mod jar, eliminating the dependency.
 
 ## Getting Started
 
@@ -43,9 +52,11 @@ there are no ETAs available.
 
 When using this template the majority of your mod is developed in the Common project. The Common project is compiled
 against the vanilla game and is used to hold code that is shared between the different loader-specific versions of your
-mod. The Common project has no knowledge or access to ModLoader specific code, apis, or concepts. Code that requires
-something from a specific loader must be done through the project that is specific to that loader, such as the Forge or
-Fabric project.
+mod. The Common project has access to the Fabric API and Fabric Loader classes, but does not have a loader set up.
+The Forge project has access to the ported versions of FAPI and fabric loader, which are fully api-compatible with
+upstream. However, their implementations differ, therefore you should avoid using any kind of internal code.
+Code that requires something from a specific loader (such as entrypoints) must be done through the project that is
+specific to that loader, such as the Forge or Fabric project.
 
 Loader specific projects such as the Forge and Fabric project are used to load the Common project into the game. These
 projects also define code that is specific to that loader. Loader specific projects can access all of the code in the
