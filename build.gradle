@@ -42,6 +42,12 @@ subprojects {
         it.options.getRelease().set(17)
     }
 
+    plugins.withId('dev.architectury.loom') {
+        loom {
+            accessWidenerPath = project(":common").file("src/main/resources/examplemod.accesswidener")
+        }   
+    }
+
     processResources {
         var replaceProperties = [
                 minecraft_version            : minecraft_version,

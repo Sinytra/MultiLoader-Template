@@ -1,0 +1,4 @@
+accessWidener v1 named
+# Example access widener
+# See https://fabricmc.net/wiki/tutorial:accesswideners for details
+accessible field net/minecraft/world/item/crafting/Ingredient values [Lnet/minecraft/world/item/crafting/Ingredient$Value;

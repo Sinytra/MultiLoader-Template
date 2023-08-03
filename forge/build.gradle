@@ -13,6 +13,8 @@ loom {
     forge {
         mixinConfig "${mod_id}.mixins.json"
         mixinConfig "${mod_id}.forge.mixins.json"
+
+        convertAccessWideners = true
     }
 
     mixin {
