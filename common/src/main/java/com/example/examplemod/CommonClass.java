@@ -1,7 +1,9 @@
 package com.example.examplemod;
 
+import com.example.examplemod.datagen.ExampleTagsProvider;
 import com.example.examplemod.platform.Services;
 import com.example.examplemod.platform.services.IPlatformHelper;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Items;
@@ -22,5 +24,10 @@ public class CommonClass {
         if (FabricLoader.getInstance().isModLoaded("examplemod")) {
             Constants.LOG.info("Hello to examplemod");
         }
+    }
+
+    public static void runDatagen(FabricDataGenerator generator) {
+        FabricDataGenerator.Pack pack = generator.createPack();
+        pack.addProvider(ExampleTagsProvider::new);
     }
 }

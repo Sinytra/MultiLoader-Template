@@ -34,6 +34,13 @@ loom {
             ideConfigGenerated(true)
             runDir("run")
         }
+        datagen {
+            data()
+            setConfigName("Forge Datagen")
+            programArgs("--mod", "${mod_id}", "--all", "--output", file("src/generated/resources").absolutePath)
+            ideConfigGenerated(true)
+            runDir("run")
+        }
     }
 }
 

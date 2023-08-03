@@ -23,6 +23,9 @@
         ],
         "client": [
             "com.example.examplemod.ExampleModClient"
+        ],
+        "fabric-datagen": [
+            "com.example.examplemod.ExampleModDatagen"
         ]
     },
     "mixins": [
